@@ -1,0 +1,31 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>hospitalName</th>
+                <th>Date</th>
+                <th>IPD Radiology</th>
+                <th>OPD Radiology</th>
+                <th>Total Radiology</th>
+                <th>IPD Pathology</th>
+                <th>OPD Pathology</th>
+                <th>Total Pathology</th>
+                <th>Total Consultation</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let data of radiopathdata">
+                <td>{{data.hospitalName}}</td>
+                <td>{{data.billDate}}</td>
+                <td>{{data.totalRadiologyAmountIPD}}</td>
+                <td>{{data.totalRadiologyAmountOPD}}</td>
+                <td>{{data.totalRadiologyAmount}}</td>
+                <td>{{data.totalPathologyAmountIPD}}</td>
+                <td>{{data.totalPathologyAmountOPD}}</td>
+                <td>{{data.totalPathologyAmount}}</td>
+                <td>{{data.totalOPDAmount}}</td>
+            </tr>
+        </tbody>        
+    </table>
+</div>

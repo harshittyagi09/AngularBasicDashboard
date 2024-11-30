@@ -1,0 +1,31 @@
+.ipdcensuscontainer{
+  align-items: flex-start;
+  justify-content: center;
+  height:fit-content;
+}
+
+.text{
+ justify-items: center;
+  align-items:stretch;
+  font-size: large;
+  font-weight: 900;
+  font-family: 'Courier New', Courier, monospace;
+  font-style: italic;
+  color:crimson;
+}
+
+.pharmaData{ 
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.radiodata{  
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.capexopex{
+  margin: 0%;
+  align-items: flex-start;
+  justify-content: center;    
+}

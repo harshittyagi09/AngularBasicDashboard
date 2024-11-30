@@ -1,0 +1,30 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Location Name</th>             
+                <th>Capex GRN Value</th>
+                <th>Opex GRN Value</th>
+                <th>Opex Issue Value</th>
+                <th>Capex Issue Value</th>
+                <th>Site Source Value</th>
+                <th>Site Consumption Value</th>
+                <th>Opex Stock Value</th>
+                <th>Capex Stock Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of imsdata">
+                <td>{{data.name}}</td>               
+                <td>{{data.capexGRNValue}}</td>
+                <td>{{data.opexGRNValue}}</td>
+                <td>{{data.opexIssueValue}}</td>
+                <td>{{data.capexIsueeValue}}</td>
+                <td>{{data.siteStoreIssueValue}}</td>
+                <td>{{data.stieConsumption}}</td>
+                <td>{{data.opexStockValue}}</td>
+                <td>{{data.capexStockvalue}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

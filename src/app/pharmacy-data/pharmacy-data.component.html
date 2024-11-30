@@ -1,0 +1,24 @@
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>Location ID</th>
+                <th>hospitalName</th>
+                <th>Dead Stock</th>
+                <th>Near Expiry</th>
+                <th>Slow Moving</th>
+                <th>Fast Moving</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of pharmacyData">
+                <td>{{data.locationID}}</td>
+                <td>{{data.hospital}}</td>
+                <td>{{data.deadStock}}</td>
+                <td>{{data.nearExpiry}}</td>
+                <td>{{data.slowMoving}}</td>
+                <td>{{data.fastMoving}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

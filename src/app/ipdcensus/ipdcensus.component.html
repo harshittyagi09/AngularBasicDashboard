@@ -1,0 +1,20 @@
+<div>
+  <table>
+    <thead>
+      <tr>
+        <th>Location ID</th>
+        <th>Hospital Name</th>
+        <th>Admission Patient Count</th>
+        <th>Census Patient Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of census">
+        <td>{{ item.locationID }}</td>
+        <td>{{ item.hospitalName }}</td>
+        <td>{{ item.admissionPatientCount }}</td>
+        <td>{{ item.censusPatientCount }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
