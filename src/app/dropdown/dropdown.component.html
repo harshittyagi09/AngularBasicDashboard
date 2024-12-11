@@ -1,0 +1,43 @@
+<div>
+    <label for="department">Select Department:</label>
+    <select
+      id="department"
+      [(ngModel)]="selectedDept"
+      (change)="onDepartmentChange()"
+    >
+      <option *ngFor="let dept of DepartmentData" [value]="dept.dept_id">
+        {{ dept.dept_name }}
+      </option>
+    </select>
+  </div>
+  
+  <div *ngIf="SpecializationData.length > 0">
+    <label for="specialization">Select Specialization:</label>
+    <select
+      id="specialization"
+      [(ngModel)]="selectedSpec"
+      (change)="OnSpecializationChange()"
+    >
+      <option *ngFor="let spec of SpecializationData" [value]="spec.specialization_id">
+        {{ spec.specialization }}
+      </option>
+    </select>
+  </div>
+
+  <div *ngIf="SpecializationData.length>0">
+    <label for ="specialization">Select Specialization :</label>
+    <select id="specialization" [(ngModel)]="selectedSpec" (change)="OnSpecializationChange()">
+      <option>Select</option>
+      <option *ngFor="let spe of SpecializationData" [value]="spe.specialization_id">{{spe.Specialization}}</option>
+    </select>
+  </div>
+  
+  <div *ngIf="UnitData.length > 0">
+    <label for="unit">Select Unit:</label>
+    <select id="unit">
+      <option *ngFor="let unit of UnitData" [value]="unit.unit_id">
+        {{ unit.unit_name }}
+      </option>
+    </select>
+  </div>
+  
