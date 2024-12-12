@@ -1,0 +1,71 @@
+<div class="main-container">
+    <div class="main-container-dropdown">
+        <label for="department" class="label-name">Select Department</label>
+        <select name="department" id="department" class="dropdown" (change)="OnDepartmentDropDownChange()"
+            [(ngModel)]="selectedDept">
+            <option *ngFor="let dep of DepartmentData" [value]="dep.dept_id">{{dep.dept_name}}</option>
+        </select>
+    </div>
+    <div class="main-container-dropdown">
+        <label for="specialization" class="label-name">Select Specialization</label>
+        <select name="specialization" id="specialization" class="specialization" (change)="OnSpecializationChange()"
+            [(ngModel)]="selectedSpec">
+            <option *ngFor="let spec of SpecializationData" [value]="spec.specialization_id">{{spec.specialization}}
+            </option>
+        </select>
+    </div>
+    <div class="main-container-dropdown">
+        <label for="unit" class="label-name">Select Unit</label>
+        <select name="department" id="department" class="dropdown" [(ngModel)]="selectedUnit">
+            <option *ngFor="let unit of UnitData" [value]="unit.unit_id">{{unit.unit_name}}</option>
+        </select>
+    </div>
+    <div class="main-container-dropdown">
+        <label for="patientcat" class="label-name">Select Patient Category</label>
+        <select name="patientcat" id="patientcat" class="dropdown" [(ngModel)]="selectedcate"
+            (change)="OnPatientCatChange()">
+            <option *ngFor="let category of CategoryData" [value]="category.category_short_Code">
+                {{category.patient_category}}</option>
+        </select>
+    </div>
+    <div class="main-container-dropdown">
+        <label for="partner" class="label-name">Select Partner</label>
+        <select name="partner" id="partner" class="dropdown">
+            <option *ngFor="let partner of PartnerData" [value]="partner.partner_id">{{partner.partner_name}}</option>
+        </select>
+    </div>
+    <div>
+        <label for="emergency">Emergency Charge </label>
+        <label for="yes">
+            <input type="radio" name="yes" id="yes" (change)="OncheckBoxChange('Y')"
+                [checked]="isapplyemergencycharge==='Y'" />Yes
+        </label>
+        <label for="no">
+            <input type="radio" name="no" id="no" (change)="OncheckBoxChange('N')"
+                [checked]="isapplyemergencycharge==='N'" />No
+        </label>
+    </div>
+
+</div>
+
+<button (click)="getDoctorsData()">Get Doctors</button>
+
+<div *ngIf="DoctorData.length>0">
+    <h3>Available Doctors</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Doctor Name</th>
+                <th>Consultation Fees</th>
+                <th>Today OPD</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of DoctorData">
+                <td>{{data.doctor_name}}</td>
+                <td>{{data.consultation_fee}}</td>
+                <td>{{data.todayOpd}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
