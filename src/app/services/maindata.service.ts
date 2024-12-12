@@ -13,11 +13,12 @@ export class MaindataService {
   specurl='https://localhost:7245/api/Main/GetSpecializationList'
   uniturl='https://localhost:7245/api/Main/GetUnitList'
   docurl ='https://localhost:7245/api/Main/GetDoctorsAvailableForOPD'
+  patientcaturl='https://localhost:7245/api/Main/PatientCategories'
+  partnerurl='https://localhost:7245/api/Main/GetPartnerList'
 
   DepartmentDropdown():Observable<any>{
     return this.http.get(this.depturl);
-  } 
-   
+  }   
 
   SpecializationDropdown(deptID:number):Observable<any>{
     const headers=new HttpHeaders({dept_id:deptID.toString()});
@@ -28,6 +29,16 @@ export class MaindataService {
     const headers=new HttpHeaders({specialization_id:specID.toString()});
     return this.http.get(this.uniturl,{headers});
   }
+
+  PatientCategoryDropdown():Observable<any>{
+    return this.http.get(this.patientcaturl);
+  }
+
+  PartnerDropdown(partnertype:string):Observable<any>{
+    const headers=new HttpHeaders({partner_type:partnertype.toString()});
+    return this.http.get(this.partnerurl,{headers});
+  }
+  
 
 
   GetAvailableDoctors(deptID:number,specID :number ,unitID:number):Observable<any>{

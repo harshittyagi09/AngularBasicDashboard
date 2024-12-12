@@ -5,8 +5,10 @@ import { ImscapexComponent } from './imscapex/imscapex.component';
 import { IPDCensusComponent } from './ipdcensus/ipdcensus.component';
 import { PharmacyDataComponent } from './pharmacy-data/pharmacy-data.component';
 import { RadiopathsummarComponent } from './radiopathsummar/radiopathsummar.component';
+import { PatientregistrationComponent } from './patientregistration/patientregistration.component';
 
 export const routes: Routes = [
+    {path:'patientregistration',component:PatientregistrationComponent},
     {path:'dropdowns', component:DropdownComponent},
     {path:'ipdcensus',component:IPDCensusComponent},
     {path:'pharma',component:PharmacyDataComponent},

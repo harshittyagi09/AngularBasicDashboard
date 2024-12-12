@@ -1,35 +1,59 @@
-<div>
-  <label for="department">Select Department:</label>
-  <select id="department" [(ngModel)]="selectedDept" (change)="onDepartmentChange()">
-    <option *ngFor="let dept of DepartmentData" [value]="dept.dept_id">
-      {{ dept.dept_name }}
-    </option>
-  </select>
+<div class="main-container">
+
+  <div class="main-container-dropdown">
+    <label class="label-name" for="department">Select Department:</label>
+    <select id="department" [(ngModel)]="selectedDept" class="dropdown" (change)="onDepartmentChange()">
+      <option id="option-id" *ngFor="let dept of DepartmentData" [value]="dept.dept_id">
+        {{ dept.dept_name }}
+      </option>
+    </select>
+  </div>
+
+  <div class="main-container-dropdown">
+    <label class="label-name" for="specialization">Select Specialization</label>
+    <select name="specialization" id="specialization" [(ngModel)]="selectedSpec" class="dropdown"
+      (change)="OnSpecializationChange()">
+      <option *ngFor="let speci of SpecializationData" [value]="speci.specialization_id">
+        {{speci.specialization}}
+      </option>
+    </select>
+  </div>
+
+  <div class="main-container-dropdown">
+    <label class="label-name" for="unit">Select Unit</label>
+    <select name="unit" id="unit" [(ngModel)]="selectedUnit" class="dropdown">
+      <option *ngFor="let unit of UnitData" [value]="unit.unit_id">{{unit.unit_name}}</option>
+    </select>
+  </div>
 </div>
 
-<div *ngIf="SpecializationData.length > 0">
-  <label for="specialization">Select Specialization:</label>
-  <select id="specialization" [(ngModel)]="selectedSpec" (change)="OnSpecializationChange()">
-    <option *ngFor="let spec of SpecializationData" [value]="spec.specialization_id">
-      {{ spec.specialization }}
-    </option>
-  </select>
+<div class="cat-container">
+  <div class="main-container-dropdown">
+    <label class="label-name" for="category">Select Patient Category</label>
+    <div class="dropdown-container">
+      <select name="category" id="category" class="dropdown" [(ngModel)]="selectedCategory"
+        (change)="OnPatientCategoryChange()">
+        <option *ngFor="let cat of PatientCategoryData" [value]="cat.category_short_Code">{{cat.patient_category}}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="main-container-dropdown">
+    <label class="label-name" for="partner">Select Partner</label>
+    <div class="dropdown-container">
+      <select name="partner" id="partner" class="dropdown">
+        <option *ngFor="let partner of PartnerData" [value]="partner.partner_id">{{partner.partner_name}}</option>
+      </select>
+    </div>
+  </div>
 </div>
 
-<div *ngIf="UnitData.length > 0">
-  <label for="unit">Select Unit:</label>
-  <select id="unit" [(ngModel)]="selectedUnit">
-    <option *ngFor="let unit of UnitData" [value]="unit.unit_id">
-      {{ unit.unit_name }}
-    </option>
-  </select>
-</div>
-
-<button (click)="getDoctors()">Get Doctors</button>
+<button class="btn" (click)="getDoctors()">Get Doctors</button>
 
 <div *ngIf="DoctorsData.length>0">
   <h3>Available Doctors</h3>
-  <table border="1">
+  <table>
     <thead>
       <tr>
         <th>Doctor Name</th>

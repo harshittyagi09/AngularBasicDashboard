@@ -1,0 +1,45 @@
+<div>
+    <h2>Patient Registration</h2>
+    <form (ngSubmit)="registerpatient()">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name" [(ngModel)]="patientdata.first_name" required />
+
+        <label for="last_name">Last Name :</label>
+        <input type="text" name="last_name" id="last_name" [(ngModel)]="patientdata.last_name" required />
+
+        <label for="gender">Gender :</label>
+        <select id="gender" [(ngModel)]="patientdata.gender" name="gender" required>
+            <option value="">Select Gender</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+
+        <label for="age">Age :</label>
+        <input type="number" id="age" name="age" [(ngModel)]="patientdata.age" required />
+
+        <label for="phone_no">Phone Number :</label>
+        <input type="text" id="phone_no" name="phone_no" [(ngModel)]="patientdata.phone_no" required />
+
+        <label for="father_spouse_name"> Father/Spouse :</label>
+        <input type="text" name="father_spouse_name" id="father_spouse_name"
+            [(ngModel)]="patientdata.father_spouse_name" required />    
+
+        <label for="address">Address:</label>
+        <textarea type="text" name="address" id="address" [(ngModel)]="patientdata.address" required></textarea>
+
+        <label for="state_id">State ID:</label>
+        <input type="number" name="state_id" id="state_id" [(ngModel)]="patientdata.state_id" required/>
+
+        <label for="AdharNo">Aadhar Number :</label>
+        <input type="text" name="AdharNo" id="AdharNo" [(ngModel)]="patientdata.AdharNo" required/>
+
+        <label for="Password">Password:</label>
+        <input type="password" name="password" id="password" [(ngModel)]="patientdata.Password" required/>
+
+        <button class="btn btn-primary" type="submit">Register</button>
+    </form>
+
+    <div *ngIf="responseMessage">
+        <h3>{{ responseMessage}}</h3>
+    </div>
+</div>

@@ -16,16 +16,33 @@ export class DropdownComponent {
   SpecializationData: any[] = [];
   UnitData: any[] = [];
   DoctorsData: any[]=[];
+  PatientCategoryData:any[]=[];
+  PartnerData:any[]=[];
 
   selectedDept: number | null = null;
   selectedSpec: number | null = null;
   selectedUnit: number | null = null;
+  selectedCategory: string="";
 
   constructor(private mainservice: MaindataService) { }
 
   ngOnInit(): void {
     this.loadDepartment();
+    this.loadPatientCategory();
   }
+
+
+  loadPatientCategory():void {
+    this.mainservice.PatientCategoryDropdown().subscribe({
+      next:(data)=>{
+        this.PatientCategoryData=data;
+      },
+      error:(err)=>{
+        console.error('Error Fetching Data',err);
+      },
+    });
+  }
+
   loadDepartment(): void {
     this.mainservice.DepartmentDropdown().subscribe({
       next: (data) => {
@@ -62,6 +79,19 @@ export class DropdownComponent {
         },
         error: (err) => {
           console.error('Error Fetching Units', err);
+        },
+      });
+    }
+  }
+
+  OnPatientCategoryChange():void{
+    if(this.selectedCategory){
+      this.mainservice.PartnerDropdown(this.selectedCategory).subscribe({
+        next:(data)=>{
+          this.PartnerData=data;
+        },
+        error:(err)=>{
+          console.error('Error Fetching Partners',err);
         },
       });
     }
